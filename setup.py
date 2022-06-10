@@ -34,7 +34,8 @@ if __name__ == '__main__':
         url=URL,
         license=LICENSE,
         description=DESCRIPTION,
-        dependency_links=['https://github.com/hoogenboom-group/iCAT-workflow.git','https://github.com/AllenInstitute/BigFeta.git']
+        dependency_links=['https://github.com/hoogenboom-group/iCAT-workflow.git',
+                          'https://github.com/AllenInstitute/BigFeta.git'],
         long_description=open("README.md").read(),
         install_requires=INSTALL_REQUIRES,
     )
