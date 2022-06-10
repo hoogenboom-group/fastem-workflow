@@ -1,4 +1,4 @@
-# FAST-EM_workflow
+# FAST-EM workflow
 Post-processing software for FAST-EM data. Performs importing, montaging, alignment and export to CATMAID of FAST-EM data sets. Based on the iCAT-workflow by Ryan Lane.
 
 ### Requirements
@@ -7,7 +7,7 @@ Post-processing software for FAST-EM data. Performs importing, montaging, alignm
 
 (Optional) Fetch and install `miniconda`
 ```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 ```
