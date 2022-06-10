@@ -48,10 +48,10 @@ pip install git+https://github.com/hoogenboom-group/FAST-EM_workflow.git
 ssh -L 8888:localhost:8888 {user}@{server}
 ```
 
-2. Start `jupyter lab` session
+2. Go to `FAST-EM_workflow` directory and start `jupyter lab` session
 ```
-$ (icat) cd ./FAST-EM_workflow/
-$ (icat) jupyter lab --no-browser --port 8888
+cd ./FAST-EM_workflow/
+jupyter lab --no-browser --port 8888
 ```
 
 3. Open a browser and navigate to http://localhost:8888/lab to run jupyter lab session
