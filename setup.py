@@ -8,7 +8,7 @@ LICENSE = "LICENSE"
 URL = "https://github.com/hoogenboom-group/FAST-EM_workflow"
 VERSION = "0.1.dev"
 PACKAGES = [
-    "fastem",
+    "fast-em_workflow",
 ]
 INSTALL_REQUIRES = [
     "beautifulsoup4",

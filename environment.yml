@@ -12,6 +12,7 @@ dependencies:
   - mamba
   - pip
   - numpy
+  - git
   - pip:
     - tqdm
     - lxml
