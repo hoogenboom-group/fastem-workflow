@@ -33,7 +33,7 @@ jupyter nbextension enable --py widgetsnbextension
 
 3. Clone GitHub repo
 ```
-git clone https://github.com/hoogenboom-group/iCAT-workflow
+git clone https://github.com/hoogenboom-group/FAST-EM_workflow
 ```
 
 4. Install FAST-EM workflow from github repo
