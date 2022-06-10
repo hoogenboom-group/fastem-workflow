@@ -2,7 +2,7 @@
 Post-processing software for FAST-EM data. Performs importing, montaging, alignment and export to CATMAID of FAST-EM data sets. Based on the iCAT-workflow by Ryan Lane.
 
 ### Requirements
-- Linux server with [conda](https://docs.conda.io/en/latest/miniconda.html#linux-installers) and [git]() configured.
+- Linux server with [conda](https://docs.conda.io/en/latest/miniconda.html#linux-installers) and [git](https://git-scm.com/download/linux) configured.
 - User permissions
 
 (Optional) Fetch and install `miniconda`
