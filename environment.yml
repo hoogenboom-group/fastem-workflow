@@ -1,0 +1,21 @@
+name: fastem
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python 
+  - jupyterlab
+  - ipython
+  - altair
+  - vega_datasets
+  - nodejs=15
+  - mamba
+  - pip
+  - numpy
+  - pip:
+    - tqdm
+    - lxml
+    - ipympl
+    - ipywidgets
+    - imagecodecs
+    - ruamel.yaml
