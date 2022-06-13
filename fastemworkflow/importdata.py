@@ -28,7 +28,8 @@ def create_mipmaps(tiff, dir_out, metadata):
         with TiffWriter(fp.as_posix()) as tif:
             tif.write(image, metadata=metadata)
             
-def generate_mipmaps_from_sections(dir_sections, 
+def generate_mipmaps_from_sections(dir_project,
+                                   dir_sections, 
                                    stack_name):
     """Generate mipmaps from all section directories
 
