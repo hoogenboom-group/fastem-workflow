@@ -34,7 +34,7 @@ if __name__ == '__main__':
         url=URL,
         license=LICENSE,
         description=DESCRIPTION,
-        dependency_links=['https://github.com/hoogenboom-group/iCAT-workflow/master#egg=0.2'],
+        dependency_links=['https://github.com/hoogenboom-group/iCAT-workflow#egg=0.2'],
         long_description=open("README.md").read(),
         install_requires=INSTALL_REQUIRES,
     )

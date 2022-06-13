@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python 
+  - python=3.9
   - jupyterlab
   - ipython
   - altair
@@ -13,6 +13,7 @@ dependencies:
   - pip
   - numpy
   - git
+  - tifffile
   - pip:
     - tqdm
     - lxml
