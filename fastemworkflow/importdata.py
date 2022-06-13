@@ -66,7 +66,7 @@ def generate_mipmaps_from_sections(dir_project,
         # If empty, go to next section
         if not files_to_process:
             print(f'Mipmaps for {dir_section.name} already exist, skipping to next section')
-            pass
+            continue
                       
         # Loop through tiffs to process in each section
         for fp in tqdm(list(dir_section.glob('[0-9]*_[0-9]*_0.tiff'))):
