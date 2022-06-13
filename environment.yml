@@ -20,3 +20,4 @@ dependencies:
     - ipywidgets
     - imagecodecs
     - ruamel.yaml
+    - bigfeta
