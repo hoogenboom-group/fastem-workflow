@@ -20,7 +20,7 @@ INSTALL_REQUIRES = [
     "scikit-image",
     "seaborn",
     "shapely",
-    'repo @ git+https://github.com/hoogenboom-group/iCAT-workflow.git'
+    'icat-workflow @ git+https://github.com/hoogenboom-group/iCAT-workflow.git'
 ]
 
 if __name__ == '__main__':
