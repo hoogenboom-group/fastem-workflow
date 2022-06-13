@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # All project folders
-/Notebooks/Projects
+/Notebooks/Projects/*
