@@ -1,4 +1,4 @@
-from tifffile import TiffWriter
+from tifffile import TiffWriter, TiffFile
 import os
 import re
 from tqdm.notebook import tqdm
