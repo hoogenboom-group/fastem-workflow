@@ -46,10 +46,29 @@ def generate_mipmaps_from_sections(dir_sections,
     # Loop through section directories
     for z, dir_section in tqdm(enumerate(dir_sections),
                            total=len(dir_sections)):
-
-    # Loop through tiffs in each section
+        
+    # Check if MipMaps have already been generated
+    # List output dirs and all files for processing
+    dir_output = dir_project / stack_name / dir_section.name
+    output_dirs = list(os.listdir(dir_output))
+    files = list(dir_section.glob('[0-9]*_[0-9]*_0.tiff')) # List all files
+    
+    # Loop over all output_dirs and find processed files
+    processed_files = []
+    for output_dir in output_dirs:
+        processed_file = dir_section / f'{output_dir}_0.tiff' 
+        processed_files.append(processed_file)
+        
+    # Files to process are files not in processed files list
+    files_to_process = [file for file in files if file not in processed_files]  
+    
+    # If empty, go to next section
+    if not files_to_process:
+        print(f'Mipmaps for {dir_section.name} already exist, skipping to next section')
+                      
+    # Loop through tiffs to process in each section
         for fp in tqdm(list(dir_section.glob('[0-9]*_[0-9]*_0.tiff'))):
-
+            
             # Read tiff
             tiff = TiffFile(fp)
             # Extract metadata
