@@ -12,11 +12,6 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 ```
 
-(Optional) Install `git` and clone repository
-```
-apt-get install git
-```
-
 ### Installation
 1. Create new `conda` environment called `fastem`: 
 ```
@@ -33,12 +28,12 @@ jupyter nbextension enable --py widgetsnbextension
 
 3. Clone GitHub repo
 ```
-git clone https://github.com/hoogenboom-group/FAST-EM_workflow
+git clone https://github.com/hoogenboom-group/fastem-workflow
 ```
 
 4. Install FAST-EM workflow from github repo
 ```
-pip install git+https://github.com/hoogenboom-group/FAST-EM_workflow.git
+pip install git+https://github.com/hoogenboom-group/fastem-workflow.git
 ```
 
 ### Getting started
@@ -55,4 +50,3 @@ jupyter lab --no-browser --port 8888
 ```
 
 3. Open a browser and navigate to http://localhost:8888/lab to run jupyter lab session
-
