@@ -62,7 +62,10 @@ def generate_mipmaps_from_sections(dir_project,
             pass
         
         # List all files
-        files = list(dir_section.glob('[0-9]*_[0-9]*_0.tiff')) # List all files
+        if stack_name == 'raw':
+            files = list(dir_section.glob('[0-9]*_[0-9]*_0.tiff')) # List all files
+        else: 
+            files = list(dir_section.glob(f'{stack_name}/[0-9]*_[0-9]*_0.tiff')) # List all files
         
         # Files to process are files not in processed files list
         files_to_process = [file for file in files if file not in processed_files]  
@@ -73,7 +76,7 @@ def generate_mipmaps_from_sections(dir_project,
             continue
                       
         # Loop through tiffs to process in each section
-        for fp in tqdm(list(dir_section.glob('[0-9]*_[0-9]*_0.tiff'))):
+        for fp in tqdm(files_to_process):
             
             # Read tiff
             tiff = TiffFile(fp)
