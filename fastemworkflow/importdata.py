@@ -47,48 +47,50 @@ def generate_mipmaps_from_sections(dir_project,
     # Loop through section directories
     for z, dir_section in tqdm(enumerate(dir_sections),
                            total=len(dir_sections)):    
-        
         # Check if MipMaps have already been generated
         dir_output = dir_project / stack_name / dir_section.name
         processed_files = []
+        # Loop over all output_dirs and find per file (tile) whether it has been processed
         try:
             # List output directories
             output_dirs = list(os.listdir(dir_output))
-            
-            # Loop over all output_dirs and find processed files
+            # Loop through directories
             for output_dir in output_dirs:
-                processed_file = dir_section / f'{output_dir}_0.tiff' 
-                processed_files.append(processed_file)
+                # Check if tiles exist
+                if os.path.exists(dir_output / output_dir / '0.tif'):
+                    if stack_name == 'raw':
+                        processed_files.append(dir_section / f'{output_dir}_0.tiff') # Append to processed files   
+                    else: 
+                        processed_files.append(dir_section / stack_name / f'{output_dir}_0.tiff') # Append to processed files      
+        # If output directories not found, just continue (do nothing more) 
         except FileNotFoundError:
             pass
         
-        # List all files
-        if stack_name == 'raw':
-            files = list(dir_section.glob('[0-9]*_[0-9]*_0.tiff')) # List all files
-        else: 
-            files = list(dir_section.glob(f'{stack_name}/[0-9]*_[0-9]*_0.tiff')) # List all files
-        
-        # Files to process are files not in processed files list
-        files_to_process = [file for file in files if file not in processed_files]  
-    
-        # If empty, go to next section
-        if not files_to_process:
-            print(f'Mipmaps for {dir_section.name} already exist, skipping to next section')
-            continue
-                      
-        # Loop through tiffs to process in each section
-        for fp in tqdm(files_to_process):
+        finally:
+            # List all files
+            if stack_name == 'raw':
+                files = list(dir_section.glob('[0-9]*_[0-9]*_0.tiff')) # List all files
+            else: 
+                files = list(dir_section.glob(f'{stack_name}/[0-9]*_[0-9]*_0.tiff')) # List all files
+                
+            # Files to process are files not in processed files list
+            files_to_process = [file for file in files if file not in processed_files]  
+            # If empty, go to next section
+            if not files_to_process:
+                print(f'Mipmaps for {dir_section.name} already exist, skipping to next section')
+                continue
             
-            # Read tiff
-            tiff = TiffFile(fp)
-            # Extract metadata
-            metadata = {tag.name: tag.value for tag in tiff.pages[0].tags}
-            # Infer row, col
-            row, col = [int(i) for i in re.findall(r'\d+', fp.stem)][:2]
-
-            # Set directory to output mipmaps
-            dir_mipmaps = dir_project / stack_name / dir_section.name / f"{row:03d}_{col:03d}"
-            dir_mipmaps.mkdir(parents=True, exist_ok=True)
-            # Create mipmaps
-            create_mipmaps(tiff, dir_mipmaps, metadata)    
+            # Loop through tiffs to process in each section
+            for fp in tqdm(files_to_process):
+                # Read tiff
+                tiff = TiffFile(fp)
+                # Extract metadata
+                metadata = {tag.name: tag.value for tag in tiff.pages[0].tags}
+                # Infer row, col
+                row, col = [int(i) for i in re.findall(r'\d+', fp.stem)][:2]
+                # Set directory to output mipmaps
+                dir_mipmaps = dir_project / stack_name / dir_section.name / f"{row:03d}_{col:03d}"
+                dir_mipmaps.mkdir(parents=True, exist_ok=True)
+                # Create mipmaps
+                create_mipmaps(tiff, dir_mipmaps, metadata)
 
