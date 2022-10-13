@@ -47,6 +47,7 @@ def generate_mipmaps_from_sections(dir_project,
     # Loop through section directories
     for z, dir_section in tqdm(enumerate(dir_sections),
                            total=len(dir_sections)):    
+        
         # Check if MipMaps have already been generated
         dir_output = dir_project / stack_name / dir_section.name
         processed_files = []
